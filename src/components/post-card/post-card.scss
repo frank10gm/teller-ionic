@@ -1,8 +1,10 @@
-page-home {
+post-card {
     $black: #222428;
     $dark: #888;
     $small: 12px;
     .post-wrapper{
+        margin: 0px 10px;
+        // margin-bottom: 10px;
         .big-icon{
             font-size: 24px;
         }
@@ -38,6 +40,8 @@ page-home {
                 min-height: 64px;
                 max-width: 64px;
                 max-height: 64px;
+                border-radius: 100%;
+                overflow: hidden;
             }
             .person-name{
                 margin-right: 8px;
@@ -67,6 +71,9 @@ page-home {
             display: flex;
             align-items: center;
             margin-bottom: -20px;
+            .range{
+                width: 100%;
+            }
         }
         .post-actions{
             display: flex;
@@ -93,5 +100,4 @@ page-home {
             color: $dark;
         }
     }       
-
 }

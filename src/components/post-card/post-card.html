@@ -1,0 +1,54 @@
+<ion-card class="post-wrapper">      
+  <ion-card-content>
+    <div class="post-head">
+      <button ion-button class="person-more" small clear color="dark">
+        <ion-icon name="more"></ion-icon>              
+      </button>
+      
+      <img class="person-img" src="./assets/imgs/avatar-finn.png" />
+      
+      <div class="person-info">
+        <h2><span class="person-name">{{post.creator}}</span> <span class="person-follow"><ion-icon color="medium" name="pulse"></ion-icon> <span class="text">follow</span></span></h2>
+        <h3>Descrizione della persona</h3>   
+        <p class="post-time">
+          <ion-note class="smaller">
+            {{post.added}}ago
+          </ion-note>
+        </p>                   
+      </div>
+    </div>
+    <div class="post-content">
+      {{post.description}}
+    </div>
+    <div class="audio-listener">
+      <button ion-button small clear color="primary" (click)="playPost(post)">
+        <ion-icon class="big-icon" [name]="(!post.audioPlaying) ? 'play' : 'pause'"></ion-icon>              
+      </button>       
+      <ion-range class="range" [disabled]="!post.audioEnabled" step="0.1" color="primary" [(ngModel)]="post.elapsed" [max]="post.duration" (mousedown)="pauseFrom(post)" (touchstart)="pauseFrom(post)" (mouseup)="playFrom(post)" (touchend)="playFrom(post)" (ionChange)="audioChange($event, post)"></ion-range>      
+    </div>    
+  </ion-card-content>
+  <ion-grid>
+    <ion-row >
+      <ion-col class="post-numbers">
+        1K Plays, {{post.likes}} Likes, {{post.comments_count}} Comments
+      </ion-col>                        
+    </ion-row>        
+    <ion-row >
+      <ion-col class="post-actions">
+        <div class="start">             
+          <button ion-button small clear color="primary">
+            <ion-icon class="big-icon" name="heart-outline"></ion-icon>              
+          </button>                      
+          <button ion-button small clear color="dark">
+            <ion-icon class="big-icon" name="text"></ion-icon>              
+          </button>
+        </div>
+        <div class="end">
+          <button ion-button small clear color="dark">
+            <ion-icon class="big-icon" name="bookmark"></ion-icon>              
+          </button>              
+        </div>
+      </ion-col>                    
+    </ion-row>
+  </ion-grid>
+</ion-card>  
